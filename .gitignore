@@ -1,0 +1,56 @@
+# Arquivos de compilação e saída
+build/
+bin/
+target/
+out/
+
+# Arquivos de configuração do IntelliJ IDEA
+.idea/
+
+# Logs e arquivos temporários
+*.log
+*.log.*
+*.tmp
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração do Gradle
+.gradle/
+gradle/
+*.iml
+.gradle.kts
+buildSrc/
+
+# Arquivos de configuração do Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Dependências do Maven
+/.m2/
+
+# Arquivos de configuração do Eclipse
+.settings/
+
+# Logs do Spring Boot
+logs/
+
+# Arquivos de propriedades do Spring Boot
+application.properties
+application.yml
+
+# Arquivos de configuração do Kotlin
+.idea_modules/
+
+# Arquivos de cache do Kotlin
+.caches/
+.kt_home/
+
+# Cache do IntelliJ IDEA
+.idea/caches/
+
+# Arquivos do sistema operacional e arquivos temporários
+*.swp
+*~

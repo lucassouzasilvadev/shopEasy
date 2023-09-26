@@ -1,0 +1,32 @@
+code smells
+
+
+1 - nomes
+*renomear
+
+2 - linhas e branco
+*apagar
+
+3- comentários
+*apagar
+
+
+4- condições confusas ou complexas
+
+* inverter ifs introduzindo clausula guarda
+* consolidar condições
+
+5 - tratamento inadequado de erros
+
+* tratar adequadament
+
+
+6- variaveis declaradas longe da utilização
+*mover variaveis
+
+7- variavel declarada em conjunto
+*separar variaveis
+
+
+8- variavel inicializada em conjunto
+* separar variaveis
