@@ -1,3 +1,3 @@
 SHOP EASY
 
-Projeto de ecommerce implementado durante o curso de clean architeture do rodrigo branas. 
+Projeto de ecommerce usando tdd, ddd, clean architeture e design patterns
