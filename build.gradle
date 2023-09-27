@@ -35,7 +35,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.0'
 	testImplementation 'io.rest-assured:rest-assured'
 	testImplementation 'com.jayway.jsonpath:json-path'
-
+	implementation 'org.springframework.boot:spring-boot-starter'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 

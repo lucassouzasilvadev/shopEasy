@@ -1,6 +1,5 @@
 package br.com.shopeasy.shopeasy.order
 
-import java.math.BigDecimal
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
@@ -12,8 +11,8 @@ data class Product(
     var id_product: Int,
     var description: String,
     var price: Double,
-    var altura: Double,
-    var largura: Double,
-    var profundidade: Double,
-    var peso: Double
+    var height: Double,
+    var width: Double,
+    var length: Double,
+    var weight: Double
 )

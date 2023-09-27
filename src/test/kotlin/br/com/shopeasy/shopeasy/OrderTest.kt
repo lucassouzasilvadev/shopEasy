@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
+import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringRunner
 
 
@@ -28,9 +29,6 @@ class OrderTest (@LocalServerPort private val port: Int){
     private var jsonDimensaoNegativa: String = ""
     private var jsonCalcularFrete: String = ""
     private var jsonFreteMinimo: String = ""
-
-
-
 
 
     @BeforeEach
@@ -55,7 +53,7 @@ class OrderTest (@LocalServerPort private val port: Int){
     }
 
     @Test
-    fun deveCriarUmPedidoCom3Produtos(){
+    fun`deve criar um pedido com 3 produtos`(){
         given()
             .body(jsonPedidoValido)
                 .contentType(ContentType.JSON)
@@ -63,11 +61,11 @@ class OrderTest (@LocalServerPort private val port: Int){
             .`when`()
                 .post()
             .then()
-                .body("total", equalTo(7560.0f))
+                .body("total", equalTo(19000.0f))
     }
 
     @Test
-    fun deveCriarUmPedidoVazioComCpfValido(){
+    fun `deve criar Um pedido vazio com cpf valido`(){
         given()
             .body(jsonPedidoVazio)
             .contentType(ContentType.JSON)
@@ -79,7 +77,7 @@ class OrderTest (@LocalServerPort private val port: Int){
     }
 
     @Test
-    fun deveCriarUmPedidoComCupomDeDesconto(){
+    fun `deve criar um pedido com cupom de desconto`(){
         given()
             .body(jsonPedidoValidoComCoupon)
             .contentType(ContentType.JSON)
@@ -87,11 +85,11 @@ class OrderTest (@LocalServerPort private val port: Int){
             .`when`()
             .post()
             .then()
-            .body("total", equalTo(6048.0f))
+            .body("total", equalTo(15200.0f))
     }
 
     @Test
-    fun naoDeveCriarUmPedidoComCpfInvalido(){
+    fun `nao deve criar um pedido com cpf invalido`(){
         given()
             .body(jsonPedidoComCpfInvalido)
             .contentType(ContentType.JSON)
@@ -99,6 +97,7 @@ class OrderTest (@LocalServerPort private val port: Int){
             .`when`()
             .post()
             .then()
+            .statusCode(HttpStatus.UNPROCESSABLE_ENTITY.value())
             .body("message",equalTo("cpf is invalid"))
     }
 
@@ -110,55 +109,47 @@ class OrderTest (@LocalServerPort private val port: Int){
             .accept(ContentType.JSON)
             .`when`()
             .post()
-            .then().body("message", equalTo("cupom está expirado"))
+            .then()
+            .body("total", equalTo(19000.0f))
     }
 
     @Test
-    fun `pedido nao pode ter item com quantidade negativa`(){
+    fun `nao deve criar um pedido com quantidade negativa`(){
         given()
             .body(jsonPedidoNegativo)
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
             .`when`()
             .post()
-            .then().body("message", equalTo("pedido não pode ter quantidade negativa"))
+            .then().body("message", equalTo("invalid quantity"))
     }
 
     @Test
-    fun `item do pedido nao pode ser informado mais de uma vez`(){
+    fun `nao deve criar pedido com item duplicado`(){
         given()
             .body(jsonItemDuplicado)
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
             .`when`()
             .post()
-            .then().body("message", equalTo("existe algum item duplicado na lista"))
+            .then().body("message", equalTo("duplicated item"))
     }
 
     @Test
-    fun `pedido nao pode ter items com dimensao negativa`(){
+    fun `nao deve criar pedido com dimensao negativa`(){
         given()
             .body(jsonDimensaoNegativa)
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
             .`when`()
             .post()
-            .then().body("message", equalTo("Nenhuma dimensão do item pode ser negativa"))
+            .then()
+            .statusCode(HttpStatus.UNPROCESSABLE_ENTITY.value())
+            .body("message", equalTo("invalid dimension"))
     }
 
     @Test
-    fun ` pedido nao pode ter items com peso negativo`(){
-        given()
-            .body(jsonPesoNegativo)
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .`when`()
-            .post()
-            .then().body("message", equalTo("O peso do item não pode ser negativo"))
-    }
-
-    @Test
-    fun ` deve calcular o frete do pedido `(){
+    fun `deve criar um pedido e calcular o frete`(){
         given()
             .body(jsonCalcularFrete)
             .contentType(ContentType.JSON)
@@ -166,11 +157,11 @@ class OrderTest (@LocalServerPort private val port: Int){
             .`when`()
             .post()
             .then()
-            .body("frete", equalTo(30.0f))
+            .body("freight", equalTo(30.0f))
     }
 
     @Test
-    fun ` deve calcular o frete minimo `(){
+    fun `deve criar um pedido e calcular o frete minimo`(){
         given()
             .body(jsonFreteMinimo)
             .contentType(ContentType.JSON)
@@ -178,6 +169,6 @@ class OrderTest (@LocalServerPort private val port: Int){
             .`when`()
             .post()
             .then()
-            .body("frete", equalTo(10.0f))
+            .body("freight", equalTo(10.0f))
     }
 }

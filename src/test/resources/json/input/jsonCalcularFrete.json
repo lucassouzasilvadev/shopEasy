@@ -5,5 +5,7 @@
       "idProduct": 2,
       "quantity": 1
     }
-  ]
+  ],
+  "from": "12345",
+  "to": "12565"
 }

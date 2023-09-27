@@ -2,8 +2,10 @@
   "cpf": "429.875.898-24",
   "items": [
     {
-      "idProduct": 1,
+      "idProduct": 6,
       "quantity": 1
     }
-  ]
+  ],
+  "from": "1543321",
+  "to": "5448531"
 }
