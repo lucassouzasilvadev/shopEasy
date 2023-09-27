@@ -1,0 +1,18 @@
+{
+  "cpf": "429.875.898-24",
+  "items": [
+    {
+      "idProduct": 1,
+      "quantity": 2
+    },
+    {
+      "idProduct": 2,
+      "quantity": 1
+    },
+    {
+      "idProduct": 3,
+      "quantity": 4
+    }
+  ],
+  "coupon": "VALE20"
+}

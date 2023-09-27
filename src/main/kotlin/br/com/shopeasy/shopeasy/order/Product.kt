@@ -11,5 +11,9 @@ data class Product(
     @Id
     var id_product: Int,
     var description: String,
-    var price: BigDecimal
+    var price: Double,
+    var altura: Double,
+    var largura: Double,
+    var profundidade: Double,
+    var peso: Double
 )

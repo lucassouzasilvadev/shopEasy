@@ -11,5 +11,6 @@ data class Coupon(
     @Id
     var id: Int,
     var code: String,
-    var percentage: BigDecimal
+    var percentage: Double,
+    var validate: Int
 )
