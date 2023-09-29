@@ -1,6 +1,5 @@
-package br.com.shopeasy.shopeasy.order
+package br.com.shopeasy.shopeasy.checkout
 
-import java.math.BigDecimal
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table

@@ -24,8 +24,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
-//	implementation 'org.flywaydb:flyway-core'
-//	implementation 'org.flywaydb:flyway-mysql'
+	//	implementation 'org.flywaydb:flyway-core'
+	//	implementation 'org.flywaydb:flyway-mysql'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -37,6 +37,11 @@ dependencies {
 	testImplementation 'com.jayway.jsonpath:json-path'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// https://mvnrepository.com/artifact/org.mockito/mockito-core
+	testImplementation 'org.mockito:mockito-core:5.5.0'
+	// https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+	testImplementation 'org.mockito:mockito-junit-jupiter:5.5.0'
+
 }
 
 

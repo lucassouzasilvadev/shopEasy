@@ -1,4 +1,4 @@
-package br.com.shopeasy.shopeasy.order
+package br.com.shopeasy.shopeasy.checkout
 
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -14,5 +14,6 @@ data class Product(
     var height: Double,
     var width: Double,
     var length: Double,
-    var weight: Double
+    var weight: Double,
+    var currency: String
 )

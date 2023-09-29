@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class OrderTest (@LocalServerPort private val port: Int){
+class ApiTest (@LocalServerPort private val port: Int){
 
     private var jsonPedidoValido: String = ""
     private var jsonPedidoValidoComCoupon: String = ""

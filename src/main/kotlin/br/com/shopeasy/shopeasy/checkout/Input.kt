@@ -1,4 +1,4 @@
-package br.com.shopeasy.shopeasy.order
+package br.com.shopeasy.shopeasy.checkout
 
 data class Input(
     var cpf: String,

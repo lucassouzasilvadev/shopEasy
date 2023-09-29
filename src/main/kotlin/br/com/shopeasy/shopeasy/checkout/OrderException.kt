@@ -1,4 +1,4 @@
-package br.com.shopeasy.shopeasy.order
+package br.com.shopeasy.shopeasy.checkout
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ResponseStatus
